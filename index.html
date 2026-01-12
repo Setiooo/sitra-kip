@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiTra-KIP Mobile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="phone">
+
+  <!-- LOGIN -->
+  <div id="login" class="card">
+    <h2>SiTra-KIP</h2>
+    <input type="text" placeholder="NISN">
+    <input type="password" placeholder="Password">
+    <button onclick="login()">MASUK</button>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden">
+
+    <!-- PROFIL -->
+    <div class="card profile">
+      <b>Muhammad Setio Budi</b><br>
+      <small>NISN: 5000010181</small>
+    </div>
+
+    <!-- SINKRONISASI -->
+    <div class="card sync">
+      Sinkronisasi Data:<br>
+      <span class="ok">Dapodik ✓</span>
+      <span class="ok">DTKS ✓</span>
+    </div>
+
+    <!-- STATUS & KEPUTUSAN -->
+    <div class="card status-koreksi" id="statusBox">
+      <b id="statusText">STATUS: DALAM KOREKSI</b>
+
+      <p id="statusDesc">
+        Perbaikan data telah diajukan dan menunggu verifikasi.
+      </p>
+
+      <small>Status Proses</small>
+      <button id="btnAjukan" disabled>KOREKSI DIAJUKAN</button>
+
+      <hr style="margin:14px 0">
+
+      <h4>Keputusan Final (Simulasi)</h4>
+
+      <p id="keputusanText">
+        <b>Status:</b> Menunggu keputusan
+      </p>
+
+      <p id="keputusanDesc" class="note">
+        Keputusan hanya dapat diambil oleh verifikator berwenang.
+      </p>
+
+      <button id="btnSetujui" onclick="setDisetujui()">SETUJUI</button>
+
+      <br><br>
+
+      <button id="btnTolak" onclick="setDitolak()" style="background:#dc2626">
+        TOLAK
+      </button>
+    </div>
+
+    <!-- RIWAYAT PENCAIRAN (TABEL) -->
+    <div class="card riwayat">
+      <h4>Riwayat Pencairan</h4>
+
+      <p id="rekeningInfo"></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tahun</th>
+            <th>Tahap</th>
+            <th>Tanggal</th>
+            <th>Jumlah</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="riwayatTable"></tbody>
+      </table>
+    </div>
+
+    <!-- AUDIT -->
+    <div class="card audit">
+      <h4>Audit Trail</h4>
+      <ul id="auditLog"></ul>
+    </div>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
